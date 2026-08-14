@@ -1,24 +1,50 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SiteHeader } from "@/components/landing/site-header";
+import { Hero } from "@/components/landing/hero";
+import { Metrics } from "@/components/landing/metrics";
+import { Services } from "@/components/landing/services";
+import { Projects } from "@/components/landing/projects";
+import { Pricing } from "@/components/landing/pricing";
+import { Faq } from "@/components/landing/faq";
+import { SiteFooter } from "@/components/landing/site-footer";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "AV Tech Solutions | Software y sistemas web a la medida" },
+      {
+        name: "description",
+        content:
+          "Desarrollamos sistemas web, APIs, apps móviles y automatizaciones a la medida para negocios en México. Cotiza tu proyecto con AV Tech Solutions.",
+      },
+      {
+        property: "og:title",
+        content: "AV Tech Solutions | Software y sistemas web a la medida",
+      },
+      {
+        property: "og:description",
+        content:
+          "Transformamos ideas y necesidades de tu negocio en software a la medida: web, móvil, APIs e integraciones.",
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+/** Landing principal de AV Tech Solutions. */
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen w-full overflow-x-hidden bg-background">
+      <SiteHeader />
+      <main>
+        <Hero />
+        <Metrics />
+        <Services />
+        <Projects />
+        <Pricing />
+        <Faq />
+      </main>
+      <SiteFooter />
     </div>
   );
 }
