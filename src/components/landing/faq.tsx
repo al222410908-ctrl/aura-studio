@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { faqs } from "./data";
+import { brand, faqs } from "./data";
 import { Reveal, RevealItem } from "./motion-primitives";
 
 export function Faq() {
@@ -26,7 +26,7 @@ export function Faq() {
             </RevealItem>
             <RevealItem>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                ¿Falta algo por resolver? Escríbeme por WhatsApp al {brandPhone} y lo aclaramos el
+                ¿Falta algo por resolver? Escríbeme por WhatsApp al {brand.whatsapp} y lo aclaramos el
                 mismo día.
               </p>
             </RevealItem>
@@ -51,5 +51,3 @@ export function Faq() {
     </section>
   );
 }
-
-const brandPhone = "+52 55 9106 5973";
