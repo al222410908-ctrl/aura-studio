@@ -61,49 +61,57 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* AV Tech Solutions — dark editorial system: deep carbon + muted emerald */
+/* AV Tech Solutions — "Titanio & Esmeralda": slate profundo + emerald 500 */
 :root {
   --radius: 0.75rem;
-  --background: oklch(0.16 0.008 250);
-  --foreground: oklch(0.96 0.004 250);
-  --card: oklch(0.2 0.009 250);
-  --card-foreground: oklch(0.96 0.004 250);
-  --popover: oklch(0.2 0.009 250);
-  --popover-foreground: oklch(0.96 0.004 250);
-  --primary: oklch(0.68 0.115 163);
-  --primary-foreground: oklch(0.17 0.02 165);
-  --secondary: oklch(0.25 0.01 250);
-  --secondary-foreground: oklch(0.94 0.004 250);
-  --muted: oklch(0.24 0.009 250);
-  --muted-foreground: oklch(0.68 0.01 250);
-  --accent: oklch(0.62 0.1 45);
-  --accent-foreground: oklch(0.17 0.02 45);
+  --background: oklch(0.2077 0.0398 265.75);
+  --foreground: oklch(0.968 0.007 247.9);
+  --card: oklch(0.2795 0.0368 260.03);
+  --card-foreground: oklch(0.968 0.007 247.9);
+  --popover: oklch(0.2795 0.0368 260.03);
+  --popover-foreground: oklch(0.968 0.007 247.9);
+  --primary: oklch(0.696 0.17 162.48);
+  --primary-foreground: oklch(0.129 0.042 264.7);
+  --secondary: oklch(0.2795 0.0368 260.03);
+  --secondary-foreground: oklch(0.929 0.013 255.5);
+  --muted: oklch(0.2795 0.0368 260.03);
+  --muted-foreground: oklch(0.704 0.04 256.79);
+  --accent: oklch(0.715 0.143 215.22);
+  --accent-foreground: oklch(0.129 0.042 264.7);
   --destructive: oklch(0.6 0.19 25);
   --destructive-foreground: oklch(0.97 0.004 250);
-  --border: oklch(0.32 0.011 250);
-  --input: oklch(0.32 0.011 250);
-  --ring: oklch(0.68 0.115 163);
-  --surface: oklch(0.185 0.009 250);
-  --chart-1: oklch(0.68 0.115 163);
-  --chart-2: oklch(0.62 0.1 45);
+  --border: oklch(0.372 0.0392 257.29 / 0.55);
+  --input: oklch(0.372 0.0392 257.29 / 0.7);
+  --ring: oklch(0.696 0.17 162.48);
+  --surface: oklch(0.2795 0.0368 260.03 / 0.6);
+  --chart-1: oklch(0.696 0.17 162.48);
+  --chart-2: oklch(0.715 0.143 215.22);
   --chart-3: oklch(0.6 0.09 230);
   --chart-4: oklch(0.78 0.1 100);
   --chart-5: oklch(0.55 0.08 300);
-  --sidebar: oklch(0.18 0.008 250);
-  --sidebar-foreground: oklch(0.96 0.004 250);
-  --sidebar-primary: oklch(0.68 0.115 163);
-  --sidebar-primary-foreground: oklch(0.17 0.02 165);
-  --sidebar-accent: oklch(0.25 0.01 250);
-  --sidebar-accent-foreground: oklch(0.96 0.004 250);
-  --sidebar-border: oklch(0.32 0.011 250);
-  --sidebar-ring: oklch(0.68 0.115 163);
+  --sidebar: oklch(0.2077 0.0398 265.75);
+  --sidebar-foreground: oklch(0.968 0.007 247.9);
+  --sidebar-primary: oklch(0.696 0.17 162.48);
+  --sidebar-primary-foreground: oklch(0.129 0.042 264.7);
+  --sidebar-accent: oklch(0.2795 0.0368 260.03);
+  --sidebar-accent-foreground: oklch(0.968 0.007 247.9);
+  --sidebar-border: oklch(0.372 0.0392 257.29 / 0.55);
+  --sidebar-ring: oklch(0.696 0.17 162.48);
   --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
-  --shadow-soft: 0 1px 2px oklch(0 0 0 / 0.4), 0 12px 40px -18px oklch(0 0 0 / 0.7);
-  --shadow-lift: 0 2px 6px oklch(0 0 0 / 0.45), 0 24px 60px -24px oklch(0 0 0 / 0.8);
+  --shadow-soft:
+    0 1px 2px oklch(0.129 0.042 264.7 / 0.5), 0 16px 40px -20px oklch(0.129 0.042 264.7 / 0.75);
+  --shadow-lift:
+    0 2px 6px oklch(0.129 0.042 264.7 / 0.55), 0 28px 70px -26px oklch(0.129 0.042 264.7 / 0.85);
+  --shadow-emerald: 0 12px 32px -10px oklch(0.696 0.17 162.48 / 0.35);
   --gradient-emerald: linear-gradient(
     135deg,
-    oklch(0.68 0.115 163 / 0.18),
-    oklch(0.68 0.115 163 / 0)
+    oklch(0.696 0.17 162.48 / 0.14),
+    oklch(0.715 0.143 215.22 / 0.05)
+  );
+  --gradient-titanium: linear-gradient(
+    180deg,
+    oklch(0.968 0.007 247.9),
+    oklch(0.869 0.022 252.9)
   );
 }
 
@@ -163,7 +171,8 @@
 /* Hairline ring used across surfaces */
 @utility surface-card {
   background-color: var(--surface);
-  border: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
+  backdrop-filter: blur(24px);
+  border: 1px solid color-mix(in oklab, var(--border) 90%, transparent);
   box-shadow: var(--shadow-soft);
   transition:
     transform 300ms ease-out,
@@ -172,7 +181,7 @@
   &:hover {
     transform: scale(1.01);
     box-shadow: var(--shadow-lift);
-    border-color: color-mix(in oklab, var(--primary) 35%, transparent);
+    border-color: color-mix(in oklab, var(--primary) 30%, transparent);
   }
 }
 
@@ -184,7 +193,47 @@
 /* Fine grid texture for the hero backdrop */
 @utility grid-texture {
   background-image:
-    linear-gradient(to right, color-mix(in oklab, var(--border) 55%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklab, var(--border) 55%, transparent) 1px, transparent 1px);
-  background-size: 72px 72px;
+    linear-gradient(to right, oklch(0.2795 0.0368 260.03 / 0.45) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.2795 0.0368 260.03 / 0.45) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent 75%);
+}
+
+/* Resplandor ambiental esmeralda + toque cian */
+@utility ambient-glow {
+  background-image:
+    radial-gradient(ellipse 55% 45% at 50% 0%, oklch(0.696 0.17 162.48 / 0.12), transparent 70%),
+    radial-gradient(ellipse 45% 40% at 85% 15%, oklch(0.715 0.143 215.22 / 0.06), transparent 70%);
+}
+
+/* Texto titanio: degradado brillante a plata */
+@utility text-titanium {
+  background-image: var(--gradient-titanium);
+  background-clip: text;
+  color: transparent;
+}
+
+/* Botón primario esmeralda con halo difuso */
+@utility btn-emerald {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: var(--shadow-emerald);
+  transition: all 200ms ease-out;
+  &:hover {
+    background-color: color-mix(in oklab, var(--primary) 88%, white);
+    box-shadow: 0 16px 40px -10px oklch(0.696 0.17 162.48 / 0.45);
+  }
+}
+
+/* Botón secundario titanio con micro-brillo */
+@utility btn-titanium {
+  background-color: oklch(0.2795 0.0368 260.03 / 0.5);
+  color: oklch(0.929 0.013 255.5);
+  border: 1px solid oklch(0.372 0.0392 257.29 / 0.8);
+  transition: all 200ms ease-out;
+  &:hover {
+    background-color: oklch(0.2795 0.0368 260.03 / 0.85);
+    border-color: color-mix(in oklab, var(--primary) 35%, transparent);
+    box-shadow: 0 0 0 1px oklch(0.696 0.17 162.48 / 0.15);
+  }
 }

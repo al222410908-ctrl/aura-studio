@@ -15,7 +15,7 @@ export function Pricing() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">Planes</p>
           </RevealItem>
           <RevealItem>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-balance sm:text-4xl">
+            <h2 className="text-titanium mt-3 text-3xl font-extrabold tracking-tight text-balance sm:text-4xl">
               Precios claros, sin letras chiquitas
             </h2>
           </RevealItem>
@@ -28,12 +28,12 @@ export function Pricing() {
         </Reveal>
 
         {/* Toggle mensual / anual */}
-        <div className="mt-8 inline-flex items-center gap-1 rounded-xl border border-border/80 bg-card/60 p-1">
+        <div className="mt-8 inline-flex items-center gap-1 rounded-xl border border-border bg-card/50 p-1 backdrop-blur-xl">
           <button
             type="button"
             onClick={() => setAnnual(false)}
             className={`min-h-11 rounded-lg px-4 text-sm font-semibold transition-colors duration-200 ease-out ${
-              annual ? "text-muted-foreground hover:text-foreground" : "bg-primary text-primary-foreground"
+              annual ? "text-muted-foreground hover:text-foreground" : "btn-emerald"
             }`}
           >
             Mensual
@@ -42,7 +42,7 @@ export function Pricing() {
             type="button"
             onClick={() => setAnnual(true)}
             className={`min-h-11 rounded-lg px-4 text-sm font-semibold transition-colors duration-200 ease-out ${
-              annual ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+              annual ? "btn-emerald" : "text-muted-foreground hover:text-foreground"
             }`}
           >
             Anual <span className="text-[11px] font-medium opacity-80">−20%</span>
@@ -92,8 +92,8 @@ export function Pricing() {
                   rel="noreferrer"
                   className={`mt-8 inline-flex min-h-12 items-center justify-center rounded-xl px-5 text-sm font-semibold transition-colors duration-200 ease-out ${
                     plan.featured
-                      ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                      : "border border-border bg-secondary/50 text-foreground hover:bg-secondary"
+                      ? "btn-emerald"
+                      : "btn-titanium"
                   }`}
                 >
                   Solicitar propuesta
