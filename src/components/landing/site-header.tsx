@@ -25,9 +25,7 @@ export function SiteHeader() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ease-out ${
-        scrolled
-          ? "border-b border-border bg-background/70 shadow-[var(--shadow-soft)] backdrop-blur-xl"
-          : "border-b border-transparent"
+        scrolled ? "border-b border-border/70 bg-background/80 backdrop-blur-xl" : "border-b border-transparent"
       }`}
     >
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center gap-4 px-5 sm:h-18 lg:px-8">
@@ -57,7 +55,7 @@ export function SiteHeader() {
           href={brand.whatsappLink}
           target="_blank"
           rel="noreferrer"
-          className="btn-emerald ml-auto hidden h-10 items-center rounded-lg px-4 text-sm font-semibold md:ml-0 md:inline-flex"
+          className="ml-auto hidden h-10 items-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground transition-colors duration-200 ease-out hover:bg-primary/90 md:ml-0 md:inline-flex"
         >
           Solicitar cotización
         </a>
@@ -66,7 +64,7 @@ export function SiteHeader() {
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
-          className="btn-titanium ml-auto grid size-11 shrink-0 place-items-center rounded-lg md:hidden"
+          className="ml-auto grid size-11 shrink-0 place-items-center rounded-lg border border-border bg-card/60 text-foreground transition-colors duration-200 ease-out hover:bg-secondary md:hidden"
         >
           {open ? <X className="size-5" strokeWidth={1.75} /> : <Menu className="size-5" strokeWidth={1.75} />}
         </button>
@@ -78,7 +76,7 @@ export function SiteHeader() {
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.25, ease: "easeOut" }}
-          className="border-t border-border bg-background/90 backdrop-blur-xl md:hidden"
+          className="border-t border-border bg-background/95 backdrop-blur-xl md:hidden"
         >
           <nav className="mx-auto flex w-full max-w-6xl flex-col gap-1 px-5 py-4">
             {navLinks.map((link) => (
@@ -95,7 +93,7 @@ export function SiteHeader() {
               href={brand.whatsappLink}
               target="_blank"
               rel="noreferrer"
-              className="btn-emerald mt-2 flex min-h-12 items-center justify-center rounded-lg px-4 text-base font-semibold"
+              className="mt-2 flex min-h-12 items-center justify-center rounded-lg bg-primary px-4 text-base font-semibold text-primary-foreground transition-colors duration-200 ease-out hover:bg-primary/90"
             >
               Solicitar cotización
             </a>

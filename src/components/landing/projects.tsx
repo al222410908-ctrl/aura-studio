@@ -11,9 +11,8 @@ export function Projects() {
   const project = projects[active]!;
 
   return (
-    <section id="proyectos" className="relative border-t border-border py-20 sm:py-28">
-      <div aria-hidden className="pointer-events-none absolute inset-0 ambient-glow" />
-      <div className="relative mx-auto w-full max-w-6xl px-5 lg:px-8">
+    <section id="proyectos" className="border-t border-border/70 bg-surface/40 py-20 sm:py-28">
+      <div className="mx-auto w-full max-w-6xl px-5 lg:px-8">
         <Reveal className="max-w-2xl">
           <RevealItem>
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
@@ -21,7 +20,7 @@ export function Projects() {
             </p>
           </RevealItem>
           <RevealItem>
-            <h2 className="text-titanium mt-3 text-3xl font-extrabold tracking-tight text-balance sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-balance sm:text-4xl">
               Sistemas que ya operan todos los días
             </h2>
           </RevealItem>
@@ -36,8 +35,8 @@ export function Projects() {
               onClick={() => setActive(i)}
               className={`min-h-12 flex-1 rounded-xl border px-4 text-left transition-colors duration-200 ease-out sm:px-5 ${
                 i === active
-                  ? "border-primary/40 bg-primary/10 shadow-[var(--shadow-emerald)]"
-                  : "border-border bg-card/40 backdrop-blur-xl hover:bg-card/70"
+                  ? "border-primary/40 bg-primary/10"
+                  : "border-border/80 bg-card/50 hover:bg-secondary/60"
               }`}
             >
               <span className="block text-sm font-bold tracking-tight">{p.name}</span>
@@ -82,7 +81,7 @@ export function Projects() {
                 {project.stack.map((tech) => (
                   <li
                     key={tech}
-                    className="rounded-md border border-border bg-secondary/40 px-2.5 py-1 text-[11px] font-medium text-foreground/80"
+                    className="rounded-md border border-border/80 bg-secondary/50 px-2.5 py-1 text-[11px] font-medium text-foreground/80"
                   >
                     {tech}
                   </li>
@@ -93,7 +92,7 @@ export function Projects() {
 
           {/* Preview visual del producto */}
           <div className="min-w-0 lg:col-span-2">
-            <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-[var(--shadow-soft)] backdrop-blur-xl">
+            <div className="overflow-hidden rounded-2xl border border-border/80 bg-surface shadow-[var(--shadow-soft)]">
               <img
                 src={showcaseImage}
                 alt="Punto de venta en tablet y recordatorios de citas por WhatsApp"

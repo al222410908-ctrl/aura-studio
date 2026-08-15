@@ -8,16 +8,11 @@ import { fadeInUp, staggerContainer } from "./motion-primitives";
 export function Hero() {
   return (
     <section id="inicio" className="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24">
-      {/* Micro-malla con máscara radial + resplandor ambiental */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 grid-texture opacity-70" />
-      <div aria-hidden className="pointer-events-none absolute inset-0 ambient-glow" />
+      {/* Textura y halo de fondo */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 grid-texture opacity-40" />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 h-[420px] w-[720px] max-w-[140vw] -translate-x-1/2 rounded-full bg-primary/10 blur-[130px]"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-24 right-0 h-[320px] w-[520px] max-w-[120vw] rounded-full bg-accent/5 blur-[140px]"
+        className="pointer-events-none absolute -top-40 left-1/2 h-[420px] w-[720px] max-w-[140vw] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]"
       />
 
       <div className="relative mx-auto w-full max-w-6xl px-5 lg:px-8">
@@ -31,7 +26,7 @@ export function Hero() {
 
           <motion.h1
             variants={fadeInUp}
-            className="text-titanium mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight text-balance sm:text-5xl lg:text-6xl"
+            className="mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight text-balance sm:text-5xl lg:text-6xl"
           >
             Transformamos ideas y necesidades de tu negocio en{" "}
             <span className="text-primary">software a la medida</span>.
@@ -48,14 +43,14 @@ export function Hero() {
               href={brand.whatsappLink}
               target="_blank"
               rel="noreferrer"
-              className="btn-emerald group inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-6 text-sm font-semibold"
+              className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-6 text-sm font-semibold text-primary-foreground transition-colors duration-200 ease-out hover:bg-primary/90"
             >
               Cotizar mi proyecto
               <ArrowRight className="size-4 transition-transform duration-200 ease-out group-hover:translate-x-0.5" strokeWidth={2} />
             </a>
             <a
               href="#proyectos"
-              className="btn-titanium inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-6 text-sm font-semibold"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-border bg-card/60 px-6 text-sm font-semibold text-foreground transition-colors duration-200 ease-out hover:bg-secondary"
             >
               Ver casos de éxito
             </a>
@@ -85,7 +80,7 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
           className="relative mt-14 sm:mt-20"
         >
-          <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-[var(--shadow-lift)] backdrop-blur-xl">
+          <div className="overflow-hidden rounded-2xl border border-border/80 bg-surface shadow-[var(--shadow-lift)]">
             <img
               src={heroImage}
               alt="Dashboard administrativo desarrollado por AV Tech Solutions"
@@ -95,7 +90,7 @@ export function Hero() {
             />
           </div>
           {/* Badge flotante sobre el visual */}
-          <div className="absolute -bottom-5 left-4 flex items-center gap-3 rounded-xl border border-border bg-card/70 px-4 py-3 shadow-[var(--shadow-soft)] backdrop-blur-xl sm:left-8">
+          <div className="absolute -bottom-5 left-4 flex items-center gap-3 rounded-xl border border-border/80 bg-background/80 px-4 py-3 backdrop-blur-xl sm:left-8">
             <span className="relative flex size-2.5">
               <span className="absolute inline-flex size-2.5 animate-ping rounded-full bg-primary/60" />
               <span className="relative inline-flex size-2.5 rounded-full bg-primary" />
