@@ -53,7 +53,7 @@ export function Pricing() {
         <Reveal className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {plans.map((plan) => (
             <RevealItem key={plan.name} className="relative min-w-0">
-              <CornerMarks size={14} inset={-8} mixed={plan.featured} />
+              <CornerMarks size={14} inset={-8} mixed={plan.featured === true} />
               <article
                 className={`precision-card flex h-full flex-col rounded-2xl p-6 sm:p-7 ${
                   plan.featured ? "wash-emerald border-rust/35" : ""
