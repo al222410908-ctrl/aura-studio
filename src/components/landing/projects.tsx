@@ -5,6 +5,7 @@ import { AlertTriangle, CheckCircle2, Wrench } from "lucide-react";
 import showcaseImage from "@/assets/showcase-pos.jpg";
 import { projects } from "./data";
 import { Reveal, RevealItem } from "./motion-primitives";
+import { CornerMarks } from "./corner-marks";
 
 export function Projects() {
   const [active, setActive] = useState(0);
@@ -15,12 +16,12 @@ export function Projects() {
       <div className="mx-auto w-full max-w-6xl px-5 lg:px-8">
         <Reveal className="max-w-2xl">
           <RevealItem>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-rust">
               Casos de éxito
             </p>
           </RevealItem>
           <RevealItem>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-balance sm:text-4xl">
+            <h2 className="mt-3 font-stencil text-3xl font-extrabold uppercase tracking-tight text-balance sm:text-5xl">
               Sistemas que ya operan todos los días
             </h2>
           </RevealItem>
@@ -35,8 +36,8 @@ export function Projects() {
               onClick={() => setActive(i)}
               className={`min-h-12 flex-1 rounded-xl border px-4 text-left transition-colors duration-200 ease-out sm:px-5 ${
                 i === active
-                  ? "border-primary/40 bg-primary/10"
-                  : "border-border/80 bg-card/50 hover:bg-secondary/60"
+                  ? "border-rust/45 bg-rust/10"
+                  : "border-border/80 bg-steel/60 hover:border-rust/30 hover:bg-steel"
               }`}
             >
               <span className="block text-sm font-bold tracking-tight">{p.name}</span>
@@ -51,13 +52,14 @@ export function Projects() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            className="min-w-0 lg:col-span-3"
+            className="relative min-w-0 lg:col-span-3"
           >
-            <div className="surface-card h-full rounded-2xl p-6 sm:p-8">
+            <CornerMarks size={16} inset={-9} mixed />
+            <div className="precision-card h-full rounded-2xl p-6 sm:p-8">
               <dl className="space-y-6">
                 <div>
                   <dt className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                    <AlertTriangle className="size-4 text-accent" strokeWidth={1.75} />
+                    <AlertTriangle className="size-4 text-rust" strokeWidth={1.75} />
                     El reto
                   </dt>
                   <dd className="mt-2 text-sm leading-relaxed text-foreground/85">{project.challenge}</dd>
@@ -91,8 +93,9 @@ export function Projects() {
           </motion.div>
 
           {/* Preview visual del producto */}
-          <div className="min-w-0 lg:col-span-2">
-            <div className="overflow-hidden rounded-2xl border border-border/80 bg-surface shadow-[var(--shadow-soft)]">
+          <div className="relative min-w-0 lg:col-span-2">
+            <CornerMarks size={16} inset={-9} />
+            <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-surface shadow-[var(--shadow-soft)]">
               <img
                 src={showcaseImage}
                 alt="Punto de venta en tablet y recordatorios de citas por WhatsApp"
@@ -100,6 +103,15 @@ export function Projects() {
                 width={1200}
                 height={912}
                 className="block h-full w-full object-cover"
+              />
+              <div aria-hidden className="pointer-events-none absolute inset-0 forge-light mix-blend-screen" />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-y-0 -left-8 w-28 bg-rust/25 blur-3xl mix-blend-screen"
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-y-0 -right-8 w-24 bg-primary/20 blur-3xl mix-blend-screen"
               />
             </div>
             <p className="mt-3 text-xs text-muted-foreground">
