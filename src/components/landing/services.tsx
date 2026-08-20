@@ -41,7 +41,9 @@ export function Services() {
       <div className="mx-auto w-full max-w-6xl px-5 lg:px-8">
         <Reveal className="max-w-2xl">
           <RevealItem>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">Servicios</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
+              Servicios
+            </p>
           </RevealItem>
           <RevealItem>
             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-balance sm:text-4xl">

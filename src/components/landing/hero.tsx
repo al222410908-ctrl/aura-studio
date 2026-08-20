@@ -21,7 +21,12 @@ export function Hero() {
       />
 
       <div className="relative mx-auto w-full max-w-6xl px-5 lg:px-8">
-        <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="max-w-3xl">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+          className="max-w-3xl"
+        >
           <motion.div variants={fadeInUp}>
             <span className="inline-flex items-center gap-2 rounded-full border border-rust/30 bg-rust/10 px-3 py-1.5 text-xs font-medium text-rust">
               <Sparkles className="size-3.5" strokeWidth={1.75} />
@@ -37,7 +42,10 @@ export function Hero() {
             </h1>
           </motion.div>
 
-          <motion.p variants={fadeInUp} className="mt-8 max-w-2xl text-base leading-relaxed text-foreground/70 sm:text-lg">
+          <motion.p
+            variants={fadeInUp}
+            className="mt-8 max-w-2xl text-base leading-relaxed text-foreground/70 sm:text-lg"
+          >
             Resolvemos cuellos de botella operativos con aplicaciones web, APIs RESTful, soluciones
             móviles e integraciones automatizadas. Herramientas limpias, rápidas e intuitivas,
             alineadas al flujo real de tu negocio.
@@ -51,7 +59,10 @@ export function Hero() {
               className="group glow-emerald inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-primary/60 bg-primary px-6 text-sm font-semibold text-primary-foreground duration-200 ease-out hover:bg-primary/90"
             >
               Cotizar mi proyecto
-              <ArrowRight className="size-4 transition-transform duration-200 ease-out group-hover:translate-x-0.5" strokeWidth={2} />
+              <ArrowRight
+                className="size-4 transition-transform duration-200 ease-out group-hover:translate-x-0.5"
+                strokeWidth={2}
+              />
             </a>
             <a
               href="#proyectos"
@@ -61,7 +72,10 @@ export function Hero() {
             </a>
           </motion.div>
 
-          <motion.div variants={fadeInUp} className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-foreground/65">
+          <motion.div
+            variants={fadeInUp}
+            className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-foreground/65"
+          >
             <span className="inline-flex items-center gap-1.5">
               <ShieldCheck className="size-4 text-rust" strokeWidth={1.75} />
               Código propio, sin plantillas
@@ -92,10 +106,14 @@ export function Hero() {
               alt="Dashboard administrativo desarrollado por AV Tech Solutions"
               width={1408}
               height={1008}
+              fetchPriority="high"
               className="block w-full"
             />
             {/* Iluminación lateral dramática naranja/cobre mezclada con esmeralda */}
-            <div aria-hidden className="pointer-events-none absolute inset-0 forge-light mix-blend-screen" />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 forge-light mix-blend-screen"
+            />
             <div
               aria-hidden
               className="pointer-events-none absolute inset-y-0 -left-10 w-40 bg-rust/25 blur-3xl mix-blend-screen"

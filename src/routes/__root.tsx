@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { brand } from "../components/landing/data";
 
 function NotFoundComponent() {
   return (
@@ -84,14 +85,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Desarrollo de software, sistemas web, APIs y apps móviles a la medida para negocios en México.",
       },
       { name: "author", content: "Alan Alcántara Valencia" },
+      { name: "theme-color", content: "#121415" },
       { property: "og:title", content: "AV Tech Solutions | Software a la medida" },
       {
         property: "og:description",
         content: "Transformamos ideas y necesidades de tu negocio en software a la medida.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "es_MX" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -110,6 +112,45 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: brand.name,
+          description: brand.tagline,
+          founder: {
+            "@type": "Person",
+            name: brand.founder,
+          },
+          telephone: brand.whatsapp,
+          email: brand.email,
+          address: {
+            "@type": "PostalAddress",
+            addressCountry: "MX",
+          },
+          areaServed: "MX",
+          priceRange: "$$",
+          sameAs: [brand.github],
+          makesOffer: [
+            {
+              "@type": "Offer",
+              itemOffered: { "@type": "Service", name: "Desarrollo Web & Landing Pages" },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: { "@type": "Service", name: "Sistemas Web & APIs a la Medida" },
+            },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Aplicaciones Móviles" } },
+            {
+              "@type": "Offer",
+              itemOffered: { "@type": "Service", name: "Integraciones & Automatizaciones" },
+            },
+          ],
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -119,7 +160,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
         <HeadContent />
       </head>

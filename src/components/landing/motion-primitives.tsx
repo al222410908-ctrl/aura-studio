@@ -43,13 +43,7 @@ export function Reveal({
   );
 }
 
-export function RevealItem({
-  children,
-  className,
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
+export function RevealItem({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <motion.div variants={fadeInUp} className={className}>
       {children}

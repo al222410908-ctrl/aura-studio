@@ -26,8 +26,8 @@ export function Faq() {
             </RevealItem>
             <RevealItem>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                ¿Falta algo por resolver? Escríbeme por WhatsApp al {brand.whatsapp} y lo aclaramos el
-                mismo día.
+                ¿Falta algo por resolver? Escríbeme por WhatsApp al {brand.whatsapp} y lo aclaramos
+                el mismo día.
               </p>
             </RevealItem>
           </Reveal>

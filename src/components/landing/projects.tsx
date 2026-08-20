@@ -62,21 +62,27 @@ export function Projects() {
                     <AlertTriangle className="size-4 text-rust" strokeWidth={1.75} />
                     El reto
                   </dt>
-                  <dd className="mt-2 text-sm leading-relaxed text-foreground/85">{project.challenge}</dd>
+                  <dd className="mt-2 text-sm leading-relaxed text-foreground/85">
+                    {project.challenge}
+                  </dd>
                 </div>
                 <div>
                   <dt className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                     <Wrench className="size-4 text-primary" strokeWidth={1.75} />
                     La solución
                   </dt>
-                  <dd className="mt-2 text-sm leading-relaxed text-foreground/85">{project.solution}</dd>
+                  <dd className="mt-2 text-sm leading-relaxed text-foreground/85">
+                    {project.solution}
+                  </dd>
                 </div>
                 <div>
                   <dt className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                     <CheckCircle2 className="size-4 text-primary" strokeWidth={1.75} />
                     Impacto de negocio
                   </dt>
-                  <dd className="mt-2 text-sm leading-relaxed text-foreground/85">{project.impact}</dd>
+                  <dd className="mt-2 text-sm leading-relaxed text-foreground/85">
+                    {project.impact}
+                  </dd>
                 </div>
               </dl>
               <ul className="mt-7 flex flex-wrap gap-2 border-t border-border/70 pt-6">
@@ -104,7 +110,10 @@ export function Projects() {
                 height={912}
                 className="block h-full w-full object-cover"
               />
-              <div aria-hidden className="pointer-events-none absolute inset-0 forge-light mix-blend-screen" />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 forge-light mix-blend-screen"
+              />
               <div
                 aria-hidden
                 className="pointer-events-none absolute inset-y-0 -left-8 w-28 bg-rust/25 blur-3xl mix-blend-screen"

@@ -13,7 +13,9 @@ export function Pricing() {
       <div className="mx-auto w-full max-w-6xl px-5 lg:px-8">
         <Reveal className="max-w-2xl">
           <RevealItem>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-rust">Planes</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-rust">
+              Planes
+            </p>
           </RevealItem>
           <RevealItem>
             <h2 className="mt-3 font-stencil text-3xl font-extrabold uppercase tracking-tight text-balance sm:text-5xl">
@@ -29,12 +31,19 @@ export function Pricing() {
         </Reveal>
 
         {/* Toggle mensual / anual */}
-        <div className="mt-8 inline-flex items-center gap-1 rounded-xl border border-border/80 bg-card/60 p-1">
+        <div
+          role="group"
+          aria-label="Periodo de facturación"
+          className="mt-8 inline-flex items-center gap-1 rounded-xl border border-border/80 bg-card/60 p-1"
+        >
           <button
             type="button"
             onClick={() => setAnnual(false)}
+            aria-pressed={!annual}
             className={`min-h-11 rounded-lg px-4 text-sm font-semibold transition-colors duration-200 ease-out ${
-              annual ? "text-muted-foreground hover:text-foreground" : "bg-primary text-primary-foreground"
+              annual
+                ? "text-muted-foreground hover:text-foreground"
+                : "bg-primary text-primary-foreground"
             }`}
           >
             Mensual
@@ -42,8 +51,11 @@ export function Pricing() {
           <button
             type="button"
             onClick={() => setAnnual(true)}
+            aria-pressed={annual}
             className={`min-h-11 rounded-lg px-4 text-sm font-semibold transition-colors duration-200 ease-out ${
-              annual ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+              annual
+                ? "bg-primary text-primary-foreground"
+                : "text-muted-foreground hover:text-foreground"
             }`}
           >
             Anual <span className="text-[11px] font-medium opacity-80">−20%</span>
