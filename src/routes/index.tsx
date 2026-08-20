@@ -3,8 +3,11 @@ import { SiteHeader } from "@/components/landing/site-header";
 import { Hero } from "@/components/landing/hero";
 import { Metrics } from "@/components/landing/metrics";
 import { Services } from "@/components/landing/services";
+import { Process } from "@/components/landing/process";
 import { Projects } from "@/components/landing/projects";
+import { Testimonials } from "@/components/landing/testimonials";
 import { Pricing } from "@/components/landing/pricing";
+import { QuoteForm } from "@/components/landing/quote-form";
 import { Faq } from "@/components/landing/faq";
 import { SiteFooter } from "@/components/landing/site-footer";
 
@@ -40,8 +43,11 @@ function Index() {
         <Hero />
         <Metrics />
         <Services />
+        <Process />
         <Projects />
+        <Testimonials />
         <Pricing />
+        <QuoteForm />
         <Faq />
       </main>
       <SiteFooter />

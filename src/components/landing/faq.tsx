@@ -10,7 +10,10 @@ import { Reveal, RevealItem } from "./motion-primitives";
 
 export function Faq() {
   return (
-    <section id="faq" className="border-t border-border/70 bg-surface/40 py-20 sm:py-28">
+    <section
+      id="faq"
+      className="bg-glow-emerald border-t border-border/70 bg-surface/40 py-20 sm:py-28"
+    >
       <div className="mx-auto w-full max-w-6xl px-5 lg:px-8">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           <Reveal className="min-w-0">

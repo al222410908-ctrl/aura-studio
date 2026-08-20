@@ -82,6 +82,7 @@ export type Project = {
   solution: string;
   impact: string;
   stack: string[];
+  preview: "citas" | "pos";
 };
 
 export const projects: Project[] = [
@@ -95,6 +96,7 @@ export const projects: Project[] = [
     impact:
       "Automatización del seguimiento de citas, optimización del tiempo de recepción y reducción drástica del ausentismo.",
     stack: ["Node.js", "Express.js", "SQLite", "EJS", "whatsapp-web.js"],
+    preview: "citas",
   },
   {
     name: "Pinturas POS",
@@ -106,6 +108,7 @@ export const projects: Project[] = [
     impact:
       "Continuidad de cobro sin internet, cobros sin errores de cálculo y control exacto de stock.",
     stack: ["React", "TypeScript", "Vite", "IndexedDB (Dexie)", "PWA"],
+    preview: "pos",
   },
 ];
 
@@ -167,6 +170,70 @@ export const plans: Plan[] = [
   },
 ];
 
+export type Testimonial = {
+  quote: string;
+  client: string;
+  role: string;
+  project: string;
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    quote:
+      "Los recordatorios automáticos de WhatsApp acabaron con el ausentismo. La recepción dejó de perseguir pacientes y la agenda se llena con citas confirmadas.",
+    client: "Coordinación de consultorio médico",
+    role: "Cliente de MediCitas Sync",
+    project: "MediCitas Sync",
+  },
+  {
+    quote:
+      "Cobramos sin internet y sin errores de conversión al vender litros, galones o cubetas. El inventario por fin cuadra al cien por ciento.",
+    client: "Mostrador y bodega de pinturería",
+    role: "Cliente de Pinturas POS",
+    project: "Pinturas POS",
+  },
+  {
+    quote:
+      "El sistema se adaptó a nuestro flujo, no al revés. Las entregas parciales nos dieron confianza desde la primera semana.",
+    client: "Gerencia de operaciones",
+    role: "Sistema web a la medida",
+    project: "Desarrollo a medida",
+  },
+];
+
+export type Step = {
+  icon: "search" | "file" | "layers" | "rocket";
+  title: string;
+  description: string;
+};
+
+export const process: Step[] = [
+  {
+    icon: "search",
+    title: "Diagnóstico",
+    description:
+      "Escuchamos el cuello de botella de tu operación y mapeamos el flujo real para proponer la solución correcta.",
+  },
+  {
+    icon: "file",
+    title: "Propuesta escrita",
+    description:
+      "Alcance, tiempos, entregables y precio por escrito. Sin costos ocultos ni sorpresas.",
+  },
+  {
+    icon: "layers",
+    title: "Desarrollo por entregas",
+    description:
+      "Avances parciales desde la primera semana para que valides cada módulo mientras se construye.",
+  },
+  {
+    icon: "rocket",
+    title: "Producción y soporte",
+    description:
+      "Despliegue, capacitación al equipo y mantenimiento continuo con respaldos y mejoras.",
+  },
+];
+
 export const faqs = [
   {
     q: "¿Cuánto tarda un proyecto en estar en producción?",
@@ -198,5 +265,6 @@ export const navLinks = [
   { label: "Servicios", href: "#servicios" },
   { label: "Proyectos", href: "#proyectos" },
   { label: "Planes", href: "#planes" },
+  { label: "Cotizar", href: "#cotizar" },
   { label: "Preguntas", href: "#faq" },
 ];

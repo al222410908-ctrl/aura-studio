@@ -2,17 +2,30 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { AlertTriangle, CheckCircle2, Wrench } from "lucide-react";
-import showcaseImage from "@/assets/showcase-pos.jpg";
 import { projects } from "./data";
+import { MediCitasMockup, PinturasPosMockup } from "./project-mockups";
 import { Reveal, RevealItem } from "./motion-primitives";
-import { CornerMarks } from "./corner-marks";
+
+const previews = {
+  citas: MediCitasMockup,
+  pos: PinturasPosMockup,
+} as const;
+
+const captions: Record<keyof typeof previews, string> = {
+  citas: "Recordatorio interactivo de citas y panel de control centralizado.",
+  pos: "Cobro offline-first en mostrador con conversión automática de unidades.",
+};
 
 export function Projects() {
   const [active, setActive] = useState(0);
   const project = projects[active]!;
+  const Preview = previews[project.preview];
 
   return (
-    <section id="proyectos" className="border-t border-border/70 bg-surface/40 py-20 sm:py-28">
+    <section
+      id="proyectos"
+      className="bg-dots border-t border-border/70 bg-surface/40 py-20 sm:py-28"
+    >
       <div className="mx-auto w-full max-w-6xl px-5 lg:px-8">
         <Reveal className="max-w-2xl">
           <RevealItem>
@@ -21,7 +34,7 @@ export function Projects() {
             </p>
           </RevealItem>
           <RevealItem>
-            <h2 className="mt-3 font-stencil text-3xl font-extrabold uppercase tracking-tight text-balance sm:text-5xl">
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-balance sm:text-5xl">
               Sistemas que ya operan todos los días
             </h2>
           </RevealItem>
@@ -34,6 +47,7 @@ export function Projects() {
               key={p.name}
               type="button"
               onClick={() => setActive(i)}
+              aria-pressed={i === active}
               className={`min-h-12 flex-1 rounded-xl border px-4 text-left transition-colors duration-200 ease-out sm:px-5 ${
                 i === active
                   ? "border-rust/45 bg-rust/10"
@@ -54,7 +68,6 @@ export function Projects() {
             transition={{ duration: 0.35, ease: "easeOut" }}
             className="relative min-w-0 lg:col-span-3"
           >
-            <CornerMarks size={16} inset={-9} mixed />
             <div className="precision-card h-full rounded-2xl p-6 sm:p-8">
               <dl className="space-y-6">
                 <div>
@@ -99,35 +112,16 @@ export function Projects() {
           </motion.div>
 
           {/* Preview visual del producto */}
-          <div className="relative min-w-0 lg:col-span-2">
-            <CornerMarks size={16} inset={-9} />
-            <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-surface shadow-[var(--shadow-soft)]">
-              <img
-                src={showcaseImage}
-                alt="Punto de venta en tablet y recordatorios de citas por WhatsApp"
-                loading="lazy"
-                width={1200}
-                height={912}
-                className="block h-full w-full object-cover"
-              />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 forge-light mix-blend-screen"
-              />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-y-0 -left-8 w-28 bg-rust/25 blur-3xl mix-blend-screen"
-              />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-y-0 -right-8 w-24 bg-primary/20 blur-3xl mix-blend-screen"
-              />
-            </div>
-            <p className="mt-3 text-xs text-muted-foreground">
-              Interfaces reales en operación: cobro offline-first en mostrador y recordatorios
-              automáticos de citas.
-            </p>
-          </div>
+          <motion.div
+            key={`preview-${project.name}`}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="relative min-w-0 lg:col-span-2"
+          >
+            <Preview />
+            <p className="mt-3 text-xs text-muted-foreground">{captions[project.preview]}</p>
+          </motion.div>
         </div>
       </div>
     </section>

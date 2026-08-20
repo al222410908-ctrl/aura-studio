@@ -1,12 +1,14 @@
-/** Navegación superior con drawer móvil pulido y efecto cristal al hacer scroll. */
+/** Navegación superior con drawer móvil pulido, scrollspy y efecto cristal. */
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
-import { Menu, X, Terminal } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { brand, navLinks } from "./data";
+import { Monogram } from "./logo";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState<string>("");
   const drawerRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
@@ -15,6 +17,23 @@ export function SiteHeader() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const ids = navLinks.map((l) => l.href.slice(1));
+    const sections = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActive(`#${entry.target.id}`);
+        }
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 },
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -49,9 +68,7 @@ export function SiteHeader() {
     >
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center gap-4 px-5 sm:h-18 lg:px-8">
         <a href="#inicio" className="flex min-w-0 items-center gap-2.5">
-          <span className="grid size-9 shrink-0 place-items-center rounded-lg border border-primary/25 bg-primary/10 text-primary">
-            <Terminal className="size-4.5" strokeWidth={1.75} />
-          </span>
+          <Monogram />
           <span className="min-w-0">
             <span className="block truncate text-sm font-bold tracking-tight">
               AV Tech Solutions
@@ -67,7 +84,10 @@ export function SiteHeader() {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors duration-200 ease-out hover:bg-secondary/60 hover:text-foreground"
+              aria-current={active === link.href ? "true" : undefined}
+              className={`rounded-md px-3 py-2 text-sm transition-colors duration-200 ease-out hover:bg-secondary/60 hover:text-foreground ${
+                active === link.href ? "bg-secondary/60 text-foreground" : "text-muted-foreground"
+              }`}
             >
               {link.label}
             </a>
@@ -78,7 +98,7 @@ export function SiteHeader() {
           href={brand.whatsappLink}
           target="_blank"
           rel="noreferrer"
-          className="ml-auto hidden h-10 items-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground transition-colors duration-200 ease-out hover:bg-primary/90 md:ml-0 md:inline-flex"
+          className="glow-emerald ml-auto hidden h-10 items-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground duration-200 ease-out hover:bg-primary/90 md:ml-0 md:inline-flex"
         >
           Solicitar cotización
         </a>
@@ -129,7 +149,7 @@ export function SiteHeader() {
               target="_blank"
               rel="noreferrer"
               onClick={close}
-              className="mt-2 flex min-h-12 items-center justify-center rounded-lg bg-primary px-4 text-base font-semibold text-primary-foreground transition-colors duration-200 ease-out hover:bg-primary/90"
+              className="glow-emerald mt-2 flex min-h-12 items-center justify-center rounded-lg bg-primary px-4 text-base font-semibold text-primary-foreground duration-200 ease-out hover:bg-primary/90"
             >
               Solicitar cotización
             </a>

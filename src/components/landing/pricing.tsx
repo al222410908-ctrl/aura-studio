@@ -9,7 +9,7 @@ export function Pricing() {
   const [annual, setAnnual] = useState(false);
 
   return (
-    <section id="planes" className="py-20 sm:py-28">
+    <section id="planes" className="bg-grid-fine py-20 sm:py-28">
       <div className="mx-auto w-full max-w-6xl px-5 lg:px-8">
         <Reveal className="max-w-2xl">
           <RevealItem>
@@ -18,12 +18,12 @@ export function Pricing() {
             </p>
           </RevealItem>
           <RevealItem>
-            <h2 className="mt-3 font-stencil text-3xl font-extrabold uppercase tracking-tight text-balance sm:text-5xl">
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-balance sm:text-5xl">
               Precios claros, sin letras chiquitas
             </h2>
           </RevealItem>
           <RevealItem>
-            <p className="mt-4 text-base leading-relaxed text-foreground/70">
+            <p className="mt-4 text-base leading-relaxed text-foreground/80">
               Todos los planes incluyen desarrollo, mantenimiento y soporte directo con el fundador.
               La cotización formal siempre es gratuita.
             </p>
@@ -65,7 +65,7 @@ export function Pricing() {
         <Reveal className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {plans.map((plan) => (
             <RevealItem key={plan.name} className="relative min-w-0">
-              <CornerMarks size={14} inset={-8} mixed={plan.featured === true} />
+              {plan.featured && <CornerMarks size={14} inset={-8} />}
               <article
                 className={`precision-card flex h-full flex-col rounded-2xl p-6 sm:p-7 ${
                   plan.featured ? "wash-emerald border-rust/35" : ""
@@ -82,7 +82,7 @@ export function Pricing() {
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{plan.summary}</p>
 
                 <p className="mt-6 flex items-baseline gap-1.5">
-                  <span className="font-stencil text-4xl font-extrabold tracking-tight text-rust sm:text-5xl">
+                  <span className="text-4xl font-extrabold tracking-tight text-rust sm:text-5xl">
                     ${(annual ? plan.annual : plan.monthly).toLocaleString("es-MX")}
                   </span>
                   <span className="text-xs font-semibold text-rust/80">{plan.unit}</span>

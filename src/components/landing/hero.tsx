@@ -27,7 +27,7 @@ export function Hero() {
           animate="visible"
           className="max-w-3xl"
         >
-          <motion.div variants={fadeInUp}>
+          <motion.div variants={fadeInUp} className="mt-6">
             <span className="inline-flex items-center gap-2 rounded-full border border-rust/30 bg-rust/10 px-3 py-1.5 text-xs font-medium text-rust">
               <Sparkles className="size-3.5" strokeWidth={1.75} />
               Fundado y desarrollado por {brand.founder}
@@ -44,7 +44,7 @@ export function Hero() {
 
           <motion.p
             variants={fadeInUp}
-            className="mt-8 max-w-2xl text-base leading-relaxed text-foreground/70 sm:text-lg"
+            className="mt-8 max-w-2xl text-base leading-relaxed text-foreground/80 sm:text-lg"
           >
             Resolvemos cuellos de botella operativos con aplicaciones web, APIs RESTful, soluciones
             móviles e integraciones automatizadas. Herramientas limpias, rápidas e intuitivas,
@@ -74,7 +74,7 @@ export function Hero() {
 
           <motion.div
             variants={fadeInUp}
-            className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-foreground/65"
+            className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-foreground/75"
           >
             <span className="inline-flex items-center gap-1.5">
               <ShieldCheck className="size-4 text-rust" strokeWidth={1.75} />

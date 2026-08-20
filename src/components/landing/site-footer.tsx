@@ -1,6 +1,7 @@
 /** Sección 7 — CTA de contacto + footer completo con enlaces y badge de estado. */
-import { Github, Mail, MapPin, MessageCircle, Terminal } from "lucide-react";
+import { Github, Mail, MapPin, MessageCircle } from "lucide-react";
 import { brand, navLinks, services } from "./data";
+import { Monogram } from "./logo";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -22,7 +23,7 @@ export function SiteFooter() {
               href={brand.whatsappLink}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-6 text-sm font-semibold text-primary-foreground transition-colors duration-200 ease-out hover:bg-primary/90"
+              className="glow-emerald inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-6 text-sm font-semibold text-primary-foreground duration-200 ease-out hover:bg-primary/90"
             >
               <MessageCircle className="size-4" strokeWidth={1.75} />
               WhatsApp {brand.whatsapp}
@@ -43,9 +44,7 @@ export function SiteFooter() {
         <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-10 px-5 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
           <div className="min-w-0">
             <div className="flex min-w-0 items-center gap-2.5">
-              <span className="grid size-9 shrink-0 place-items-center rounded-lg border border-primary/25 bg-primary/10 text-primary">
-                <Terminal className="size-4.5" strokeWidth={1.75} />
-              </span>
+              <Monogram />
               <span className="truncate text-sm font-bold tracking-tight">{brand.name}</span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{brand.tagline}</p>

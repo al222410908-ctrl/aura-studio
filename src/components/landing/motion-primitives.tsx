@@ -1,8 +1,9 @@
 /**
  * Primitivas de animación compartidas (Framer Motion / motion).
  * Revelado de abajo hacia arriba con stagger suave y curva ease-out.
+ * Respeta prefers-reduced-motion: sin animaciones si el usuario lo pide.
  */
-import { motion, type Variants } from "motion/react";
+import { motion, useReducedMotion, type Variants } from "motion/react";
 import type { ReactNode } from "react";
 
 export const fadeInUp: Variants = {
@@ -29,6 +30,10 @@ export function Reveal({
   className?: string;
   delay?: number;
 }) {
+  const reduce = useReducedMotion();
+  if (reduce) {
+    return <div className={className}>{children}</div>;
+  }
   return (
     <motion.div
       className={className}
@@ -44,6 +49,10 @@ export function Reveal({
 }
 
 export function RevealItem({ children, className }: { children: ReactNode; className?: string }) {
+  const reduce = useReducedMotion();
+  if (reduce) {
+    return <div className={className}>{children}</div>;
+  }
   return (
     <motion.div variants={fadeInUp} className={className}>
       {children}

@@ -37,7 +37,7 @@ function ServiceCard({ service }: { service: Service }) {
 
 export function Services() {
   return (
-    <section id="servicios" className="py-20 sm:py-28">
+    <section id="servicios" className="bg-lattice py-20 sm:py-28">
       <div className="mx-auto w-full max-w-6xl px-5 lg:px-8">
         <Reveal className="max-w-2xl">
           <RevealItem>

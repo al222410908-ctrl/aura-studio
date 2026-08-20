@@ -101,7 +101,6 @@
   --sidebar-border: oklch(0.32 0.011 250);
   --sidebar-ring: oklch(0.68 0.115 163);
   --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-stencil: "Big Shoulders Stencil", "Plus Jakarta Sans", system-ui, sans-serif;
   --shadow-soft: 0 1px 2px oklch(0 0 0 / 0.4), 0 12px 40px -18px oklch(0 0 0 / 0.7);
   --shadow-lift: 0 2px 6px oklch(0 0 0 / 0.45), 0 24px 60px -24px oklch(0 0 0 / 0.8);
   --gradient-emerald: linear-gradient(
@@ -157,6 +156,16 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -171,7 +180,6 @@
   --color-rust-foreground: var(--rust-foreground);
   --color-steel: var(--steel);
   --font-sans: var(--font-sans);
-  --font-stencil: var(--font-stencil);
 }
 
 /* Hairline ring used across surfaces */
@@ -245,4 +253,73 @@
       0 0 0 1px color-mix(in oklab, var(--primary) 60%, transparent),
       0 0 26px -8px color-mix(in oklab, var(--primary) 70%, transparent);
   }
+}
+
+/*
+ * Background banners — patrones procedurales en la paleta del sitio.
+ * Sustituibles por imágenes IA: se cambia el url() de cada @utility por
+ * url("/backgrounds/<nombre>.jpg") y se ajusta background-size a cover.
+ */
+
+/* Halo esmeralda + cobre (radial glows) */
+@utility bg-glow-emerald {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3CradialGradient id='g1' cx='15%25' cy='0%25' r='70%25'%3E%3Cstop offset='0' stop-color='%2330c584' stop-opacity='0.28'/%3E%3Cstop offset='1' stop-color='%2330c584' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='g2' cx='100%25' cy='100%25' r='65%25'%3E%3Cstop offset='0' stop-color='%23b4552d' stop-opacity='0.22'/%3E%3Cstop offset='1' stop-color='%23b4552d' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='1200' height='800' fill='url(%23g1)'/%3E%3Crect width='1200' height='800' fill='url(%23g2)'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Halo esmeralda + acero frío */
+@utility bg-glow-cold {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3CradialGradient id='g1' cx='85%25' cy='5%25' r='70%25'%3E%3Cstop offset='0' stop-color='%2330c584' stop-opacity='0.26'/%3E%3Cstop offset='1' stop-color='%2330c584' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='g2' cx='0%25' cy='100%25' r='65%25'%3E%3Cstop offset='0' stop-color='%234f7f9e' stop-opacity='0.22'/%3E%3Cstop offset='1' stop-color='%234f7f9e' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='1200' height='800' fill='url(%23g1)'/%3E%3Crect width='1200' height='800' fill='url(%23g2)'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Lattice diagonal (hairlines) */
+@utility bg-lattice {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72'%3E%3Cpath d='M0 72L72 0' stroke='%23e8eceb' stroke-opacity='0.05'/%3E%3Cpath d='M-36 36L36 108' stroke='%23e8eceb' stroke-opacity='0.05'/%3E%3Cpath d='M36 -36L108 36' stroke='%23e8eceb' stroke-opacity='0.05'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 72px 72px;
+}
+
+/* Punto de matriz técnico */
+@utility bg-dots {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Ccircle cx='3' cy='3' r='1.6' fill='%23e8eceb' fill-opacity='0.08'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 48px 48px;
+}
+
+/* Rayas verticales finas en esmeralda */
+@utility bg-stripes {
+  background-image: repeating-linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--primary) 6%, transparent) 0 1px,
+    transparent 1px 72px
+  );
+}
+
+/* Grid fino con viñeta */
+@utility bg-grid-fine {
+  background-image:
+    radial-gradient(
+      120% 100% at 50% 0%,
+      transparent 55%,
+      color-mix(in oklab, var(--background) 60%, transparent) 100%
+    ),
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--border) 45%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--border) 45%, transparent) 1px,
+      transparent 1px
+    );
+  background-size:
+    100% 100%,
+    96px 96px,
+    96px 96px;
 }
