@@ -1,7 +1,6 @@
 /** Sección 1 — Hero: propuesta de valor, badge flotante, visual principal y CTAs. */
 import { motion } from "motion/react";
 import { ArrowRight, Github, ShieldCheck, Sparkles } from "lucide-react";
-import heroImage from "@/assets/hero-dashboard.jpg";
 import { brand } from "./data";
 import { fadeInUp, staggerContainer } from "./motion-primitives";
 import { CornerMarks } from "./corner-marks";
@@ -102,12 +101,12 @@ export function Hero() {
           <CornerMarks size={18} inset={-11} mixed />
           <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-surface shadow-[var(--shadow-lift)]">
             <img
-              src={heroImage}
-              alt="Dashboard administrativo desarrollado por AV Tech Solutions"
-              width={1408}
-              height={1008}
+              src="/pantalla-pinturas.png"
+              alt="Punto de venta Pinturas POS operando en producción"
+              width={1847}
+              height={805}
               fetchPriority="high"
-              className="block w-full"
+              className="block h-full w-full object-cover"
             />
             {/* Iluminación lateral dramática naranja/cobre mezclada con esmeralda */}
             <div
