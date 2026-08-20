@@ -93,9 +93,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "es_MX" },
+      { property: "og:url", content: "https://avtechsolutions.duckdns.org" },
+      { property: "og:site_name", content: "AV Tech Solutions" },
+      { property: "og:image", content: "https://avtechsolutions.duckdns.org/logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "canonical", href: "https://avtechsolutions.duckdns.org" },
       {
         rel: "stylesheet",
         href: appCss,
