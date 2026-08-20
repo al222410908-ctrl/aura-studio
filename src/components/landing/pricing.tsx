@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Check } from "lucide-react";
 import { brand, plans } from "./data";
 import { Reveal, RevealItem } from "./motion-primitives";
+import { CornerMarks } from "./corner-marks";
 
 export function Pricing() {
   const [annual, setAnnual] = useState(false);
@@ -12,15 +13,15 @@ export function Pricing() {
       <div className="mx-auto w-full max-w-6xl px-5 lg:px-8">
         <Reveal className="max-w-2xl">
           <RevealItem>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">Planes</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-rust">Planes</p>
           </RevealItem>
           <RevealItem>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-balance sm:text-4xl">
+            <h2 className="mt-3 font-stencil text-3xl font-extrabold uppercase tracking-tight text-balance sm:text-5xl">
               Precios claros, sin letras chiquitas
             </h2>
           </RevealItem>
           <RevealItem>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            <p className="mt-4 text-base leading-relaxed text-foreground/70">
               Todos los planes incluyen desarrollo, mantenimiento y soporte directo con el fundador.
               La cotización formal siempre es gratuita.
             </p>
@@ -51,16 +52,17 @@ export function Pricing() {
 
         <Reveal className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {plans.map((plan) => (
-            <RevealItem key={plan.name} className="min-w-0">
+            <RevealItem key={plan.name} className="relative min-w-0">
+              <CornerMarks size={14} inset={-8} mixed={plan.featured === true} />
               <article
-                className={`surface-card flex h-full flex-col rounded-2xl p-6 sm:p-7 ${
-                  plan.featured ? "wash-emerald border-primary/35" : ""
+                className={`precision-card flex h-full flex-col rounded-2xl p-6 sm:p-7 ${
+                  plan.featured ? "wash-emerald border-rust/35" : ""
                 }`}
               >
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="text-lg font-bold tracking-tight">{plan.name}</h3>
                   {plan.featured && (
-                    <span className="shrink-0 rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 text-[11px] font-semibold text-primary">
+                    <span className="shrink-0 rounded-full border border-rust/35 bg-rust/10 px-2.5 py-1 text-[11px] font-semibold text-rust">
                       Más solicitado
                     </span>
                   )}
@@ -68,10 +70,10 @@ export function Pricing() {
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{plan.summary}</p>
 
                 <p className="mt-6 flex items-baseline gap-1.5">
-                  <span className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+                  <span className="font-stencil text-4xl font-extrabold tracking-tight text-rust sm:text-5xl">
                     ${(annual ? plan.annual : plan.monthly).toLocaleString("es-MX")}
                   </span>
-                  <span className="text-xs text-muted-foreground">{plan.unit}</span>
+                  <span className="text-xs font-semibold text-rust/80">{plan.unit}</span>
                 </p>
                 <p className="mt-1 text-[11px] text-muted-foreground">
                   {annual ? "Facturación anual, precio ya con descuento" : "Sin contrato forzoso"}
@@ -92,8 +94,8 @@ export function Pricing() {
                   rel="noreferrer"
                   className={`mt-8 inline-flex min-h-12 items-center justify-center rounded-xl px-5 text-sm font-semibold transition-colors duration-200 ease-out ${
                     plan.featured
-                      ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                      : "border border-border bg-secondary/50 text-foreground hover:bg-secondary"
+                      ? "glow-emerald border border-primary/60 bg-primary text-primary-foreground hover:bg-primary/90"
+                      : "border border-rust/30 bg-steel text-foreground hover:border-rust/60 hover:bg-steel/70"
                   }`}
                 >
                   Solicitar propuesta

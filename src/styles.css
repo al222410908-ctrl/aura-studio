@@ -64,9 +64,9 @@
 /* AV Tech Solutions — dark editorial system: deep carbon + muted emerald */
 :root {
   --radius: 0.75rem;
-  --background: oklch(0.16 0.008 250);
+  --background: oklch(0.135 0.009 255);
   --foreground: oklch(0.96 0.004 250);
-  --card: oklch(0.2 0.009 250);
+  --card: oklch(0.185 0.01 255);
   --card-foreground: oklch(0.96 0.004 250);
   --popover: oklch(0.2 0.009 250);
   --popover-foreground: oklch(0.96 0.004 250);
@@ -76,14 +76,17 @@
   --secondary-foreground: oklch(0.94 0.004 250);
   --muted: oklch(0.24 0.009 250);
   --muted-foreground: oklch(0.68 0.01 250);
-  --accent: oklch(0.62 0.1 45);
-  --accent-foreground: oklch(0.17 0.02 45);
+  --accent: oklch(0.6 0.15 45);
+  --accent-foreground: oklch(0.16 0.02 45);
+  --rust: oklch(0.63 0.16 46);
+  --rust-foreground: oklch(0.16 0.02 46);
+  --steel: oklch(0.28 0.008 255);
   --destructive: oklch(0.6 0.19 25);
   --destructive-foreground: oklch(0.97 0.004 250);
   --border: oklch(0.32 0.011 250);
   --input: oklch(0.32 0.011 250);
   --ring: oklch(0.68 0.115 163);
-  --surface: oklch(0.185 0.009 250);
+  --surface: oklch(0.17 0.01 255);
   --chart-1: oklch(0.68 0.115 163);
   --chart-2: oklch(0.62 0.1 45);
   --chart-3: oklch(0.6 0.09 230);
@@ -98,12 +101,19 @@
   --sidebar-border: oklch(0.32 0.011 250);
   --sidebar-ring: oklch(0.68 0.115 163);
   --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-stencil: "Big Shoulders Stencil", "Plus Jakarta Sans", system-ui, sans-serif;
   --shadow-soft: 0 1px 2px oklch(0 0 0 / 0.4), 0 12px 40px -18px oklch(0 0 0 / 0.7);
   --shadow-lift: 0 2px 6px oklch(0 0 0 / 0.45), 0 24px 60px -24px oklch(0 0 0 / 0.8);
   --gradient-emerald: linear-gradient(
     135deg,
     oklch(0.68 0.115 163 / 0.18),
     oklch(0.68 0.115 163 / 0)
+  );
+  --gradient-forge: linear-gradient(
+    100deg,
+    oklch(0.63 0.16 46 / 0.26),
+    oklch(0.63 0.16 46 / 0.04) 45%,
+    oklch(0.68 0.115 163 / 0.16)
   );
 }
 
@@ -157,7 +167,11 @@
 
 @theme inline {
   --color-surface: var(--surface);
+  --color-rust: var(--rust);
+  --color-rust-foreground: var(--rust-foreground);
+  --color-steel: var(--steel);
   --font-sans: var(--font-sans);
+  --font-stencil: var(--font-stencil);
 }
 
 /* Hairline ring used across surfaces */
@@ -187,4 +201,40 @@
     linear-gradient(to right, color-mix(in oklab, var(--border) 55%, transparent) 1px, transparent 1px),
     linear-gradient(to bottom, color-mix(in oklab, var(--border) 55%, transparent) 1px, transparent 1px);
   background-size: 72px 72px;
+}
+
+/* Precision card: hairline steel surface with rust edge lighting on hover */
+@utility precision-card {
+  background-color: var(--surface);
+  border: 1px solid color-mix(in oklab, var(--border) 75%, transparent);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 300ms ease-out,
+    box-shadow 300ms ease-out,
+    border-color 300ms ease-out;
+  &:hover {
+    transform: scale(1.01);
+    border-color: color-mix(in oklab, var(--rust) 45%, transparent);
+    box-shadow:
+      var(--shadow-lift),
+      0 0 0 1px color-mix(in oklab, var(--rust) 20%, transparent),
+      0 0 28px -12px color-mix(in oklab, var(--rust) 55%, transparent);
+  }
+}
+
+/* Dramatic orange/copper + emerald side lighting for product renders */
+@utility forge-light {
+  background-image: var(--gradient-forge);
+}
+
+/* Emerald glow feedback for primary actions */
+@utility glow-emerald {
+  transition:
+    background-color 200ms ease-out,
+    box-shadow 200ms ease-out;
+  &:hover {
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--primary) 60%, transparent),
+      0 0 26px -8px color-mix(in oklab, var(--primary) 70%, transparent);
+  }
 }
