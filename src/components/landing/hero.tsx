@@ -31,7 +31,7 @@ export function Hero() {
 
           <motion.div variants={fadeInUp} className="relative mt-8 pr-2">
             <CornerMarks tone="white" mixed size={16} inset={-10} />
-            <h1 className="font-stencil text-[2.6rem] font-extrabold uppercase leading-[0.95] tracking-tight text-balance text-foreground sm:text-6xl lg:text-7xl">
+            <h1 className="text-[2.4rem] font-extrabold leading-[1.05] tracking-tight text-balance text-foreground sm:text-5xl lg:text-6xl">
               Transformamos ideas y necesidades de tu negocio en{" "}
               <span className="text-rust">software a la medida</span>.
             </h1>
